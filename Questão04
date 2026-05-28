@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int largura;
+
+    printf("Digite a largura central do losango (numero impar): ");
+    scanf("%d", &largura);
+
+    int metade = largura / 2;
+    for (int i = 0; i <= metade; i++) {
+        int asteriscos = 2 * i + 1;
+        int espacos = metade - i;
+  
+        for (int j = 0; j < espacos; j++) printf(" ");
+        for (int j = 0; j < asteriscos; j++) printf("X");
+        printf("\n");
+    }
+    for (int i = metade - 1; i >= 0; i--) {
+        int asteriscos = 2 * i + 1;
+        int espacos = metade - i;
+        
+        for (int j = 0; j < espacos; j++) printf(" ");
+        for (int j = 0; j < asteriscos; j++) printf("X");
+        printf("\n");
+    }
+
+    return 0;
