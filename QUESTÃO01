@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int tamanho, opcao;
+
+    printf("Digite o tamanho do lado do quadrado: ");
+    scanf("%d", &tamanho);
+
+    printf("Escolha o tipo (1 - Preenchido, 2 - Vazado): ");
+    scanf("%d", &opcao);
+
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            // Se for preenchido, ou se for as bordas do vazado
+            if (opcao == 1 || i == 0 || i == tamanho - 1 || j == 0 || j == tamanho - 1) {
+                printf("*");
+            } else {
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
