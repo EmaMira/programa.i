@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int b, l, a;
+    int valido = 0;
+
+    do {
+        printf("Digite a largura da base B (impar >= 3): ");
+        scanf("%d", &b);
+        printf("Digite a largura do tronco L (impar, >= 1 e <= B/2): ");
+        scanf("%d", &l);
+        printf("Digite a altura do tronco A (>= 2 e <= B/2): ");
+        scanf("%d", &a);
+
+        if (b >= 3 && b % 2 != 0 && l >= 1 && l % 2 != 0 && l <= b / 2 && a >= 2 && a <= b / 2) {
+            valido = 1;
+        } else {
+            printf("\n--- ERRO: Valores invalidos! Tente novamente. ---\n\n");
+        }
+    } while (!valido);
+
+    int linhas_copa = (b / 2) + 1;
+    for (int i = 0; i < linhas_copa; i++) {
+        int asteriscos = 2 * i + 1;
+        int espacos = (b - asteriscos) / 2;
+        
+        for (int j = 0; j < espacos; j++) printf(" ");
+        for (int j = 0; j < asteriscos; j++) printf("*");
+        printf("\n");
+    }
+
+    int espacos_tronco = (b - l) / 2;
+    for (int i = 0; i < a; i++) {
+        for (int j = 0; j < espacos_tronco; j++) printf(" ");
+        for (int j = 0; j < l; j++) printf("*");
+        printf("\n");
+    }
+
+    return 0;
+}
